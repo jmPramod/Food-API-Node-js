@@ -1,0 +1,31 @@
+{
+  "name": "foodapp-be",
+  "version": "1.0.0",
+  "description": "food app API",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmPramod/Nodejs-API.git"
+  },
+  "keywords": [
+    "expo",
+    "nodejs"
+  ],
+  "author": "Pramod J M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmPramod/Nodejs-API/issues"
+  },
+  "homepage": "https://github.com/jmPramod/Nodejs-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}
