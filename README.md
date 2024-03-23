@@ -46,13 +46,13 @@ npm start
 For production release:
 
 ```sh
-gulp build --prod
+npm build --prod
 ```
 
 Generating pre-built zip archives for distribution:
 
 ```sh
-gulp build dist --prod
+npm build dist --prod
 ```
 
 ## Docker
