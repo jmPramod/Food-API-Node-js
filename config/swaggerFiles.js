@@ -3,6 +3,8 @@ const swaggerJSDoc = require("swagger-jsdoc")
 
 require('dotenv').config();
 const port = process.env.PORT;
+
+const BaseURL = process.env.Base_URL_BE;
 const swaggerOption = {
     definition: {
         openapi: "3.0.0",
@@ -17,7 +19,7 @@ const swaggerOption = {
 
             }
         },
-        servers: [{ url: `http://localhost:${port}/`, description: " local host" }, { url: `http://localhost:${port}/`, description: " hosted host" }]
+        servers: [{ url: `http://localhost:${port}/`, description: " local host" }, { url: BaseURL, description: " hosted host" }]
     },
     apis: ["./routes/*.js"]
 
