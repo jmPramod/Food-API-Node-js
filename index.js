@@ -3,18 +3,31 @@ const app = express()
 require("dotenv").config()
 const port = process.env.PORT
 const cors = require("cors")
-const { productRoute } = require("./routes/productRoutes")
+const { foodRoute } = require("./routes/foodRoutes")
 const { connectDataBase } = require("./config/Db")
+
+const swaggerUI = require("swagger-ui-express")
+const { SwaggerUIBundle, SwaggerUIStandalonePreset } = require('swagger-ui-dist');
+const { swaggerSpec, CSS_URL } = require("./config/swaggerFiles")
+const { authRoute } = require("./routes/authRoute")
+
+
+
+
 const corsOption = {
     origin: "*",
     credentials: true,
 }
 app.use(cors(corsOption));
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec, { customCssUrl: CSS_URL }))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-app.use("/", productRoute)
+app.use("/", foodRoute)
+
+app.use("/", authRoute)
 app.use((err, req, res, next) => {
 
     const statusCode = err.status || 500;

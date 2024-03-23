@@ -9,7 +9,7 @@ const connectDataBase = async () => {
     }
     catch (err) {
 
-        console.log("Mongo Cloud connection Failed 😓");
+        console.log("Mongo Cloud connection Failed 😓", err);
     }
 }
 
