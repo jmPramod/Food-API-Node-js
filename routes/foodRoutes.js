@@ -76,6 +76,84 @@ const foodRoute = express.Router()
  *       500:
  *         description: Some server error
  */
+/**
+ * @swagger
+ * /food/create-product:
+ *   post:
+ *     summary: Create a new food product
+ *     tags: [Food]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/FoodSchema'
+ *     responses:
+ *       200:
+ *         description: Food product created successfully.
+ *       400:
+ *         description: Bad request. Invalid input data.
+ *       500:
+ *         description: Internal server error.
+
+ * /food/edit-product/{id}:
+ *   put:
+ *     summary: Edit an existing food product
+ *     tags: [Food]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the food product to edit.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/FoodSchema'
+ *     responses:
+ *       200:
+ *         description: Food product edited successfully.
+ *       400:
+ *         description: Bad request. Invalid input data.
+ *       404:
+ *         description: Food product not found.
+ *       500:
+ *         description: Internal server error.
+
+ * /food/delete-product:
+ *   delete:
+ *     summary: Delete a food product
+ *     tags: [Food]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 description: The ID of the food product to delete.
+ *     responses:
+ *       200:
+ *         description: Food product deleted successfully.
+ *       400:
+ *         description: Bad request. Invalid input data.
+ *       404:
+ *         description: Food product not found.
+ *       500:
+ *         description: Internal server error.
+ */
+
 
 
 foodRoute.get("/get-product", verifyToken, getProduct)
