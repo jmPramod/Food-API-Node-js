@@ -2,7 +2,7 @@
 ## Simple Food API with Authentication
 
 
-This is a simple API in which we can Create,Edit,Delete and Update food Menu with Authentication .
+This is a simple API in which we can Create,Edit,Delete and Update food Menu with Authentication. I Have user Swagger,JWT,Vercel,Mongo DB,Nodejs,Express,MVC Structure.
 
 
 
