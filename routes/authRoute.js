@@ -86,8 +86,8 @@ const authRoute = express.Router()
  */
 
 
-authRoute.post("/register", registerController)
+authRoute.post("/auth/register", registerController)
 
-authRoute.post("/login", loginController)
+authRoute.post("/auth/login", loginController)
 
 module.exports = { authRoute }
