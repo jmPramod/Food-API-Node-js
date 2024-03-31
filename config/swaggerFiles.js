@@ -9,9 +9,9 @@ const swaggerOption = {
     definition: {
         openapi: "3.0.0",
         info: {
-            title: "Documentation of E-commerce API",
+            title: "Food API's with Authentication",
             version: "1.0.0",
-            description: "A sample doc with swagger test 1",
+            description: "This is simple CRUD api with the Authentication , user need to login to do any CRUD operation on Food menu, i have use Populate for this method",
             contact: {
                 name: "Pramod",
                 url: "pramod.com",
