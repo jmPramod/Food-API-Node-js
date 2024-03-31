@@ -31,8 +31,8 @@ const loginController = async (req, res, next) => {
         const { email, password } = req.body;
 
         //validation 
-        const userExist = await authSchema.findOne({ email: email })
-
+        const userExist = await authSchema.findOne({ email })
+        console.log("userExist", userExist);
 
 
         if (!userExist) {
@@ -51,10 +51,10 @@ const loginController = async (req, res, next) => {
         const data = await authSchema.find({ email: email })
             .populate('foodId')
 
-        const userData = { name: userExist.name, email };
+        const userData = { name: userExist.name, email, Authorization: token };
         res.status(200).json({
             message: 'User logged in successfully.',
-            data: data,
+            data: userData,
         });
     }
     catch (err) {
