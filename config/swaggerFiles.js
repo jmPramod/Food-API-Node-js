@@ -38,7 +38,7 @@ const swaggerOption = {
 }
 
 const CSS_URL =
-    "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-flattop.min.css";
+    "http://petstore.swagger.io/swagger-ui-bundle.js";
 
 const swaggerSpec = swaggerJSDoc(swaggerOption)
 
