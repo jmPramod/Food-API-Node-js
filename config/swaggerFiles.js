@@ -38,7 +38,7 @@ const swaggerOption = {
 }
 
 const CSS_URL =
-    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.4/swagger-ui-bundle.js";
+    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.4/swagger-ui.css";
 
 const swaggerSpec = swaggerJSDoc(swaggerOption)
 
