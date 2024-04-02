@@ -38,7 +38,7 @@ const swaggerOption = {
 }
 
 const CSS_URL =
-    "https://cdn.jsdelivr.net/npm/jquery@3.6.4/src/core.min.js";
+    "https://cdn.jsdelivr.net/npm/jquery@3.6";
 
 const swaggerSpec = swaggerJSDoc(swaggerOption)
 
