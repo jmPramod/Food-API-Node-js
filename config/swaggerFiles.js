@@ -6,7 +6,7 @@ const port = process.env.PORT;
 
 const BaseURL = process.env.Base_URL_BE;
 const swaggerOption = {
-    definition: {
+    swaggerDefinition: {
         openapi: "3.0.0",
         info: {
             title: "Food API's with Authentication",
