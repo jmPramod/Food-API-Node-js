@@ -38,7 +38,7 @@ const swaggerOption = {
 }
 
 const CSS_URL =
-    "http://petstore.swagger.io/swagger-ui-bundle.js";
+    "https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js";
 
 const swaggerSpec = swaggerJSDoc(swaggerOption)
 
