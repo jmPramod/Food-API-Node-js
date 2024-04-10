@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authSchema = require('../model/AuthSchema');
 const createError = require('../errorHandler/errorHandle');
+const { forgotPasswordResetLink } = require('../utils/nodeMailer');
 require("dotenv").config()
 const registerController = async (req, res, next) => {
 
@@ -29,14 +30,14 @@ const registerController = async (req, res, next) => {
 const loginController = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-
+        console.log(" { email, password }", { email, password });
         //validation 
         const userExist = await authSchema.findOne({ email })
         console.log("userExist", userExist);
 
 
         if (!userExist) {
-            return next(createError(404, 'Invalid User.'));
+            return next(createError(404, 'This email is not Registered.'));
         }
         const isPassword = await bcrypt.compare(password, userExist.password);
         if (!isPassword) {
@@ -62,5 +63,29 @@ const loginController = async (req, res, next) => {
     }
 }
 
+const forgotPassword = async (req, res, next) => {
+    try {
+        const { email } = req.body;
+        const userExist = await authSchema.findOne({ email: email });
+        if (userExist.email !== email) {
+            return next(createError(404, 'Email is not registered.')); //user does not exist in database
+        }
 
-module.exports = { registerController, loginController }
+        const payload = {
+            email: userExist.email,
+            _id: userExist._id,
+        };
+        const { resetLink } = await forgotPasswordResetLink(payload);
+        res.status(200).json({
+            message: 'reset link sent successfully',
+            data: resetLink,
+
+            resetLink: resetLink,
+        });
+    } catch (err) {
+        next(err);
+    }
+}
+
+
+module.exports = { registerController, loginController, forgotPassword }

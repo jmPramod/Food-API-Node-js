@@ -1,5 +1,5 @@
 const express = require("express")
-const { registerController, loginController } = require("../controller/authController")
+const { registerController, loginController, forgotPassword } = require("../controller/authController")
 const authRoute = express.Router()
 
 /**
@@ -89,5 +89,5 @@ const authRoute = express.Router()
 authRoute.post("/auth/register", registerController)
 
 authRoute.post("/auth/login", loginController)
-
+authRoute.post("/auth/forgot-password", forgotPassword)
 module.exports = { authRoute }
