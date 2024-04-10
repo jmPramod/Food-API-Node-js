@@ -48,7 +48,6 @@ const loginController = async (req, res, next) => {
             process.env.SECRET_KEY, { expiresIn: '90d' }
         );
         res.header('Authorization', `${token}`);
-        // console.log("token", token);
         const data = await authSchema.find({ email: email })
             .populate('foodId')
 
