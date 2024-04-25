@@ -51,7 +51,7 @@ const loginController = async (req, res, next) => {
         const data = await authSchema.find({ email: email })
             .populate('foodId')
 
-        const userData = { name: userExist.name, email, Authorization: token };
+        const userData = { firstName: userExist.firstName, lastName: userExist.lastName, email, Authorization: token };
         res.status(200).json({
             message: 'User logged in successfully.',
             data: userData,
