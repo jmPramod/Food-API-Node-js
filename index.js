@@ -39,6 +39,8 @@ app.use((err, req, res, next) => {
         status: statusCode,
         message: errorMessage,
         stacks: err.stack,
+        data: null,
+
     });
 });
 

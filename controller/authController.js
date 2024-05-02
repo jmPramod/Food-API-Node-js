@@ -17,7 +17,7 @@ const registerController = async (req, res, next) => {
         res.json({
             data: data,
             message: "data Created success",
-            statusCode: 200
+            status: 200
 
         }).status(200)
     }
@@ -55,6 +55,7 @@ const loginController = async (req, res, next) => {
         res.status(200).json({
             message: 'User logged in successfully.',
             data: userData,
+            status: 200
         });
     }
     catch (err) {
@@ -65,8 +66,10 @@ const loginController = async (req, res, next) => {
 const forgotPassword = async (req, res, next) => {
     try {
         const { email } = req.body;
+        console.log("email_1", email);
         const userExist = await authSchema.findOne({ email: email });
-        if (userExist.email !== email) {
+        console.log("userExist", userExist);
+        if (!userExist) {
             return next(createError(404, 'Email is not registered.')); //user does not exist in database
         }
 
@@ -74,12 +77,12 @@ const forgotPassword = async (req, res, next) => {
             email: userExist.email,
             _id: userExist._id,
         };
-        const { resetLink } = await forgotPasswordResetLink(payload);
+        const resetLink = await forgotPasswordResetLink(payload);
         res.status(200).json({
             message: 'reset link sent successfully',
-            data: resetLink,
+            data: null,
+            status: 200,
 
-            resetLink: resetLink,
         });
     } catch (err) {
         next(err);

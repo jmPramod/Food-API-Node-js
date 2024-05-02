@@ -2,28 +2,28 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 const forgotPasswordResetLink = async (payload) => {
-    const { _id } = payload;
-    const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '15m' });
+  const { _id } = payload;
+  const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '15m' });
 
-    //   const resetLink = `${process.env.DEPLOYED_BE_BASE_URL}/api/reset-password/${_id}/${token}`;
-    const resetLink = ` ${process.env.Base_URL_BE}reset-password/${_id}/${token}`;
+  //   const resetLink = `${process.env.DEPLOYED_BE_BASE_URL}/api/reset-password/${_id}/${token}`;
+  const resetLink = ` ${process.env.Base_URL_BE}reset-password/${_id}/${token}`;
 
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        service: 'gmail',
-        port: 587,
-        secure: false, // Use `true` for port 465, `false` for all other ports
-        auth: {
-            user: process.env.ACCOUNT_LOGIN,
-            pass: process.env.NODE_MAILER_SECRET,
-        },
-    });
-    const mailOption = {
-        from: { name: 'Customer Support', address: process.env.ACCOUNT_LOGIN },
-        to: [payload.email], // list of receivers
-        subject: 'Forgot Your Password? Reset Here ', // Subject line
-        text: `Hello user you had requested for reset password , this link will expire in 10 min `, // plain text body
-        html: ` <head>
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    service: 'gmail',
+    port: 587,
+    secure: false, // Use `true` for port 465, `false` for all other ports
+    auth: {
+      user: process.env.ACCOUNT_LOGIN,
+      pass: process.env.NODE_MAILER_SECRET,
+    },
+  });
+  const mailOption = {
+    from: { name: 'Customer Support', address: process.env.ACCOUNT_LOGIN },
+    to: [payload.email], // list of receivers
+    subject: 'Forgot Your Password? Reset Here ', // Subject line
+    text: `Hello user you had requested for reset password , this link will expire in 10 min `, // plain text body
+    html: ` <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <!--[if !mso]><!-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -465,13 +465,12 @@ const forgotPasswordResetLink = async (payload) => {
           </center>
           <![endif]-->
       </body>`, // html body
-    };
-    try {
-        transporter.sendMail(mailOption);
-        console.log('email sent to gmail', mailOption);
-    } catch (err) {
-        console.log('error in sending email', err);
-    }
-    return resetLink;
+  };
+  try {
+    transporter.sendMail(mailOption);
+  } catch (err) {
+    console.log('error in sending email', err);
+  }
+  return resetLink;
 };
 module.exports = { forgotPasswordResetLink };
