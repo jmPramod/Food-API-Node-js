@@ -1,0 +1,224 @@
+/*======================
+    404 page
+=======================*/
+
+.page_404 {
+  /* padding:40px 0;  */
+  height: 100%;
+  background: #fff;
+  font-family: 'Arvo', serif;
+}
+
+.container_404 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container_404 > h1 {
+  text-align: center;
+}
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 50%;
+  width: 100%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+/*navbar css start */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+#firstParent {
+  height: 85vh;
+}
+#mainBody {
+  position: relative;
+  top: 70px;
+}
+#navbar {
+  width: 100%;
+  display: flex;
+  position: relative;
+  z-index: 30;
+  align-items: center;
+  justify-content: space-between;
+  background-color: burlywood;
+  padding: 0 10px;
+  position: fixed;
+  height: 70px;
+}
+.logo {
+  font-size: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  border: 1px solid black;
+}
+.logo > div {
+  display: flex;
+  gap: 3px;
+}
+.dotcom {
+  background-color: black;
+  color: white;
+  padding: 0 3px;
+  border-radius: 4px;
+}
+.menuItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.menuItems > li:hover {
+  background-color: #838383;
+}
+.menuItems > li {
+  list-style: none;
+  color: black;
+  padding: 10px;
+  /* background-color: ; */
+  border-radius: 4px;
+  background-color: lightblue;
+}
+.menuItems > li:hover {
+  color: rgb(171, 171, 171);
+}
+.menuItems > li > a {
+  text-decoration: none;
+  color: white;
+}
+/* navbar css end  */
+/* forgot password page start */
+
+/* forgot password page end */
+#outerBox {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+form {
+  width: 350px;
+  padding: 30px;
+  max-width: calc(100vw - 20px);
+  height: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputBlockContainer {
+  width: 100%;
+  padding: 0 20px 10px 20px;
+  box-sizing: border-box;
+}
+.inputBlockContainer > label {
+  color: #888;
+  padding: 5px;
+  user-select: none;
+}
+input {
+  font-family: 'Lato', sans-serif;
+  background-color: #eee;
+  outline: none;
+  box-shadow: 0 3px 0px 0 #ddd;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 8px;
+  width: 100%;
+}
+button {
+  width: calc(100% - 40px);
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #ddd;
+  color: #888;
+  font-weight: 400;
+  font-size: 20px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-top: 5px;
+  box-shadow: 0 4px 0 darken(#ddd, 10%);
+  transition: all 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+button:active {
+  box-shadow: 0 2px 0 darken(#ddd, 10%);
+  transform: translateY(2px);
+}
+h2 {
+  margin: 10px 0;
+}
+/* success css start */
+h1 {
+  color: #88b04b;
+  font-family: 'Nunito Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+p {
+  color: #404f5e;
+  font-family: 'Nunito Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+i {
+  color: #9abc66;
+  font-size: 100px;
+  line-height: 200px;
+  margin-left: -15px;
+}
+.card {
+  background: white;
+  padding: 60px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #c8d0d8;
+  display: inline-block;
+  margin: 0 auto;
+}
+.successContainer {
+  text-align: center;
+  padding: 40px 0;
+}
+/* success css end */
