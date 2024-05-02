@@ -85,6 +85,37 @@ const authRoute = express.Router()
  *           description: Internal server error.
  */
 
+/**
+ * @swagger
+ * paths:
+ *   /auth/forgot-password:
+ *     post:
+ *       summary: Forgot password
+ *       tags: [Authentication]
+ *       requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               required:
+ *                 - email
+ *               properties:
+ *                 email:
+ *                   type: string
+ *                   format: email
+ *                   description: The email address of the user.
+ *       responses:
+ *         200:
+ *           description: Password reset link sent successfully.
+ *         400:
+ *           description: Bad request. Invalid input data.
+ *         404:
+ *           description: Not found. User with provided email not found.
+ *         500:
+ *           description: Internal server error.
+ */
+
 
 authRoute.post("/auth/register", registerController)
 
