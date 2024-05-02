@@ -10,7 +10,8 @@ const { swaggerSpec, CSS_URL } = require("./config/swaggerFiles")
 const { authRoute } = require("./routes/authRoute")
 const { engine } = require('express-handlebars');
 const { authHB } = require("./routes/authHB")
-
+const { SwaggerUIBundle, SwaggerUIStandalonePreset } = require('swagger-ui-dist');
+// don't remove this above line it gives error after hosting 
 
 
 const corsOption = {
