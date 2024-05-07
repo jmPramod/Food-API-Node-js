@@ -8,19 +8,15 @@ const resetPasswordGet = async (req, res, next) => {
     try {
         const { id, token } = req.params;
         const payload = jwt.verify(token, process.env.SECRET_KEY);
-        console.log("id", id);
         const userExist = await authSchema.findById({ _id: id });
-        console.log("userExist", userExist);
         if (!userExist) {
             res.render('auth/resetPassword', { id: id, token: token, payload });
-            console.log("error1");
             res.render('404Error', { wrongLink: "Invalid link" });
         }
         if (payload) {
             res.render('auth/resetPassword', { id: id, token: token, payload });
         }
     } catch (error) {
-        console.log("error2");
 
 
         if (error instanceof jwt.JsonWebTokenError || error instanceof jwt.TokenExpiredError) {
@@ -37,7 +33,6 @@ const resetPasswordPost = async (req, res, next) => {
     try {
         const { id, token } = req.params;
         const payload = jwt.verify(token, process.env.SECRET_KEY);
-        console.log();
         const saltRounds = 10;
         const hashPass = await bcrypt.hash(req.body.enterPassword, saltRounds);
         const userExist = await authSchema.findOneAndUpdate(

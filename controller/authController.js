@@ -30,10 +30,8 @@ const registerController = async (req, res, next) => {
 const loginController = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-        console.log(" { email, password }", { email, password });
         //validation 
         const userExist = await authSchema.findOne({ email })
-        console.log("userExist", userExist);
 
 
         if (!userExist) {
@@ -66,9 +64,7 @@ const loginController = async (req, res, next) => {
 const forgotPassword = async (req, res, next) => {
     try {
         const { email } = req.body;
-        console.log("email_1", email);
         const userExist = await authSchema.findOne({ email: email });
-        console.log("userExist", userExist);
         if (!userExist) {
             return next(createError(404, 'Email is not registered.')); //user does not exist in database
         }
