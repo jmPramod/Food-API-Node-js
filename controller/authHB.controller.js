@@ -13,15 +13,15 @@ const resetPasswordGet = async (req, res, next) => {
         console.log("userExist", userExist);
         if (!userExist) {
             res.render('auth/resetPassword', { id: id, token: token, payload });
-
+            console.log("error1");
             res.render('404Error', { wrongLink: "Invalid link" });
         }
         if (payload) {
             res.render('auth/resetPassword', { id: id, token: token, payload });
         }
     } catch (error) {
-        console.log("error", error);
-        res.render('auth/resetPassword', {});
+        console.log("error2");
+
 
         if (error instanceof jwt.JsonWebTokenError || error instanceof jwt.TokenExpiredError) {
             res.render('404Error', { error: "This link has expired" });

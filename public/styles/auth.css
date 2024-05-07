@@ -19,6 +19,10 @@
 .container_404 > h1 {
   text-align: center;
 }
+
+.container_404 > p {
+  text-align: center;
+}
 .four_zero_four_bg {
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   height: 50%;
@@ -32,10 +36,13 @@
 
 .four_zero_four_bg h1 {
   font-size: 80px;
+  text-align: center;
 }
 
 .four_zero_four_bg h3 {
   font-size: 80px;
+
+  text-align: center;
 }
 
 .link_404 {
@@ -46,6 +53,11 @@
   display: inline-block;
 }
 
+@media (0<width<600px) {
+  .four_zero_four_bg h1 {
+    font-size: 25px;
+  }
+}
 /*navbar css start */
 * {
   box-sizing: border-box;
